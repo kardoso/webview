@@ -1,0 +1,21 @@
+{
+  "name": "webview",
+  "version": "0.1.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "commit": "npx git-cz"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "electron": "^9.0.0"
+  }
+}
