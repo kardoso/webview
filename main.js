@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron")
+const { app, BrowserWindow, globalShortcut } = require("electron")
 const config = require("./config")
 
 let win;
@@ -17,8 +17,17 @@ function createWindow() {
   win.loadURL(config.url)
 }
 
+function toggleDevTools() {
+  win.webContents.toggleDevTools()
+}
+
+function createShortcuts() {
+  globalShortcut.register('CmdOrCtrl+J', toggleDevTools)
+}
+
 app.whenReady()
   .then(createWindow)
+  .then(createShortcuts)
 
 app.on("window-all-closed", () => {
   if (process.platform !== 'darwin'){
